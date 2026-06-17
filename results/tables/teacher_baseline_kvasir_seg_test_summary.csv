@@ -1,0 +1,5 @@
+dataset,split,model_id,prompt_type,jitter_pixels,device,inference_precision,sample_count,mean_dice,mean_iou,mean_precision,mean_recall,mean_brier_full,mean_brier_roi,mean_binary_ece_full,mean_binary_ece_foreground,mean_binary_ece_roi,mean_binary_ece_boundary,mean_latency_ms
+kvasir_seg,test,wanglab/medsam-vit-base,clean,0,cuda,fp32,150,0.863613,0.780167,0.968192,0.797004,0.025659,0.082124,0.020029,0.135442,0.063678,0.191838,257.550207
+kvasir_seg,test,wanglab/medsam-vit-base,noisy,5,cuda,fp32,150,0.849839,0.761575,0.964309,0.778104,0.027966,0.089855,0.022421,0.152458,0.071966,0.202074,245.5283
+kvasir_seg,test,wanglab/medsam-vit-base,noisy,10,cuda,fp32,150,0.823615,0.727896,0.962919,0.743232,0.031875,0.105615,0.026185,0.185476,0.087202,0.22667,245.3615
+kvasir_seg,test,wanglab/medsam-vit-base,noisy,20,cuda,fp32,150,0.750622,0.639733,0.956751,0.654621,0.04337,0.147247,0.037919,0.273902,0.129769,0.269386,245.389253

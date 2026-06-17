@@ -1,0 +1,2 @@
+split,model_id,device,epoch,trainable_parameters,sample_count,mean_dice,mean_iou,mean_precision,mean_recall,mean_brier_full,mean_brier_roi,mean_binary_ece_full,mean_binary_ece_foreground,mean_binary_ece_roi,mean_binary_ece_boundary,mean_latency_ms
+validation,student_baseline,cuda,20,488001,150,0.738322,0.623698,0.796289,0.770716,0.050347,0.117397,0.038192,0.167383,0.089152,0.165073,30.24936

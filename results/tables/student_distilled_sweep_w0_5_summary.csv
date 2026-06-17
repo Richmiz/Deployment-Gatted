@@ -1,0 +1,2 @@
+split,model_id,device,epoch,trainable_parameters,sample_count,mean_dice,mean_iou,mean_precision,mean_recall,mean_brier_full,mean_brier_roi,mean_binary_ece_full,mean_binary_ece_foreground,mean_binary_ece_roi,mean_binary_ece_boundary,mean_latency_ms,teacher_loss_weight,weight_tag,checkpoint_path,selection_scope
+validation,student_distilled_sweep_w0_5,cuda,29,488001,150,0.757626,0.652865,0.844788,0.758058,0.046123,0.102823,0.034096,0.168202,0.074928,0.134011,28.479107,0.5,w0_5,results/models/student_distilled_sweep/w0_5/best.pt,best_epoch_for_weight

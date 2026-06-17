@@ -1,0 +1,2 @@
+dataset,split,model_id,prompt_type,jitter_pixels,device,inference_precision,sample_count,mean_dice,mean_iou,mean_precision,mean_recall,mean_brier_full,mean_brier_roi,mean_binary_ece_full,mean_binary_ece_foreground,mean_binary_ece_roi,mean_binary_ece_boundary,mean_latency_ms
+kvasir_seg,train,wanglab/medsam-vit-base,clean,0,cuda,fp32,700,0.860938,0.77499,0.956711,0.799223,0.030153,0.085108,0.023532,0.131641,0.065957,0.184633,267.10418
