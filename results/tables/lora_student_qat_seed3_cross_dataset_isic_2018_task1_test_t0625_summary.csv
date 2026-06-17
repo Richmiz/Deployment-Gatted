@@ -1,0 +1,2 @@
+split,model_id,device,trainable_parameters,sample_count,mean_dice,mean_iou,mean_precision,mean_recall,mean_brier_full,mean_brier_roi,mean_binary_ece_full,mean_binary_ece_foreground,mean_binary_ece_roi,mean_binary_ece_boundary,mean_latency_ms,dataset,source_checkpoint
+test,lora_student_qat_seed3_cross_dataset,cuda,488001,1000,0.09985,0.062226,0.55491,0.065098,0.249346,0.438401,0.244095,0.86439,0.433354,0.444728,25.614312,isic_2018_task1,/mnt/e/automations/Deployable MedSAM/results/models/student_distilled_lora_teacher_qat/best.pt

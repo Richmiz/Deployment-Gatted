@@ -1,0 +1,2 @@
+split,model_id,device,trainable_parameters,sample_count,mean_dice,mean_iou,mean_precision,mean_recall,mean_brier_full,mean_brier_roi,mean_binary_ece_full,mean_binary_ece_foreground,mean_binary_ece_roi,mean_binary_ece_boundary,mean_latency_ms,dataset,source_checkpoint
+test,lora_student_fp32_cross_dataset,cuda,488001,117,0.059221,0.04089,0.095701,0.236179,0.08595,0.187953,0.068767,0.709806,0.158299,0.228917,31.955598,busi,/mnt/e/automations/Deployable MedSAM/results/models/student_distilled_lora_teacher/best.pt

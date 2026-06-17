@@ -1,0 +1,5 @@
+model,dataset,fixed_threshold,fixed_test_dice,validation_selected_threshold,validation_best_dice,validation_selected_test_dice,validation_selected_test_iou,validation_selected_test_precision,validation_selected_test_recall,validation_selected_roi_ece,validation_selected_boundary_ece,test_oracle_threshold,test_oracle_dice,selected_minus_fixed_dice,oracle_minus_selected_dice,interpretation
+FP32 LoRA-student,ISIC 2018 Task 1,0.5,0.104154,0.025,0.342662,0.347377,0.238481,0.539979,0.369639,0.315096,0.222078,0.025,0.347377,0.243223,0.0,partial calibration-transfer
+FP32 LoRA-student,BUSI,0.5,0.059221,0.025,0.141133,0.112094,0.063567,0.087647,0.534106,0.08086,0.031515,0.95,0.121894,0.052872999999999996,0.009800000000000003,weak zero-shot transfer; domain adaptation needed
+QAT seed3 INT8 path,ISIC 2018 Task 1,0.625,0.09985,0.025,0.387948,0.390794,0.270752,0.576648,0.377638,0.298225,0.223608,0.025,0.390794,0.290944,0.0,partial calibration-transfer
+QAT seed3 INT8 path,BUSI,0.625,0.069855,0.025,0.124935,0.090835,0.050574,0.080698,0.411069,0.077285,0.043377,0.925,0.129469,0.02098,0.038634,weak zero-shot transfer; domain adaptation needed

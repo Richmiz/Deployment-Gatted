@@ -1,0 +1,7 @@
+ablation_step,status,mean_dice,mean_iou,roi_ece,boundary_ece,latency_ms,compression_ratio_vs_fp32,threshold,exclusion_recipe,calibration_strategy,source
+Teacher-distilled U-Net,available,0.707398,0.583328,0.086676,0.142356,25.305573,,,not_available,not_available,student_student_distilled_test_test_eval_summary.csv
+LoRA-teacher distilled U-Net,available,0.777901,0.666914,0.073206,0.160489,33.588187,,,not_available,not_available,student_student_distilled_lora_teacher_test_test_eval_summary.csv
+FP32 ONNX reference,available,0.777909,0.666922,0.073204,0.160493,36.505787,,,not_available,not_available,student_distilled_lora_teacher_fp32_onnx_test_onnx_cpu_eval_summary.csv
+Naive INT8,available,0.744729,0.624883,0.081175,0.163876,36.231593,3.651755,,not_available,not_available,student_distilled_lora_teacher_int8_test_quantized_eval_summary.csv
+Best selective PTQ INT8,available,0.745919,0.629845,0.090272,0.293491,27.722727,3.512439,0.825,last_decoder_fp32,representative,stage9_selective_ptq_best_test_summary.csv
+Best QAT selective INT8,available,0.782924,0.67426,0.065884,0.191667,30.96744,3.512426,0.65,last_decoder_fp32,qat_boundary_hard,stage9_qat_ptq_best_test_summary.csv

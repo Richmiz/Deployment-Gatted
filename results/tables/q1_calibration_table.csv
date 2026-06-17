@@ -1,0 +1,9 @@
+display_label,model_family,mean_dice,roi_ece,boundary_ece,mean_precision,mean_recall,dice_drop_vs_fp32_onnx,passes_dice_drop_gate_002
+"MedSAM teacher, clean prompt",teacher,0.863613,0.063678,0.191838,0.968192,0.797004,-0.085704,not_applicable
+LoRA-adapted MedSAM teacher,teacher_lora,0.936846,0.025419,0.082799,0.949973,0.934923,-0.158937,not_applicable
+Teacher-distilled U-Net,student_distilled,0.707398,0.086676,0.142356,0.707648,0.803341,0.07051099999999999,not_applicable
+LoRA-teacher distilled U-Net,student_lora_distilled,0.777901,0.073206,0.160489,0.800009,0.81786,8.000000000008e-06,not_applicable
+LoRA-student FP32 ONNX,fp32_onnx_reference,0.777909,0.073204,0.160493,0.800018,0.81786,0.0,not_applicable
+Naive INT8 QDQ,naive_int8,0.744729,0.081175,0.163876,0.756275,0.811866,0.03317999999999999,False
+Selective PTQ INT8,selective_ptq_int8,0.745919,0.090272,0.293491,0.821276,0.747458,0.03198999999999996,False
+QAT-distilled selective INT8,qat_selective_int8,0.782924,0.065884,0.191667,0.825323,0.802222,-0.005014999999999992,True

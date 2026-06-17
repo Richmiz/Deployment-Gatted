@@ -1,0 +1,4 @@
+fp32_source,int8_source,metric,fp32_value,int8_value,degradation,limit,verdict
+student_distilled_fp32_onnx_validation_onnx_cpu_eval_summary.csv,stage8_quantization_ablation_best_validation_summary.csv,mean_dice,0.762628,0.715594,0.047034,0.02,FAIL
+student_distilled_fp32_onnx_validation_onnx_cpu_eval_summary.csv,stage8_quantization_ablation_best_validation_summary.csv,mean_iou,0.647912,0.591018,0.056894,0.02,FAIL
+student_distilled_fp32_onnx_validation_onnx_cpu_eval_summary.csv,stage8_quantization_ablation_best_validation_summary.csv,mean_binary_ece_roi,0.073111,0.102988,0.029877,0.02,FAIL

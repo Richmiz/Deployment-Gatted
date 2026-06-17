@@ -1,0 +1,2 @@
+dataset,split,model_id,prompt_type,jitter_pixels,device,inference_precision,sample_count,mean_dice,mean_iou,mean_precision,mean_recall,mean_brier_full,mean_brier_roi,mean_binary_ece_full,mean_binary_ece_foreground,mean_binary_ece_roi,mean_binary_ece_boundary,mean_latency_ms
+kvasir_seg,validation,lora_teacher_rank8,clean,0,cuda,fp32,64,0.942676,0.894709,0.949967,0.940942,0.012635,0.039141,0.007617,0.030116,0.022432,0.084164,0.0

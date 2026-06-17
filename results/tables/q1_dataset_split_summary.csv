@@ -1,0 +1,4 @@
+dataset,status,train_count,validation_count,test_count,seed,split_manifest
+kvasir_seg,available,700,150,150,1,/mnt/e/automations/Deployable MedSAM/results/splits/kvasir_seg_seed1.json
+isic_2018_task1,available,2594,100,1000,1,/mnt/e/automations/Deployable MedSAM/results/splits/isic_2018_task1_official_seed1.json
+busi,available,546,117,117,1,/mnt/e/automations/Deployable MedSAM/results/splits/busi_seed1.json
