@@ -1,4 +1,4 @@
-# Deployable MedSAM Study Code
+# Deployment-Gated INT8 Compression of MedSAM-Style Medical Segmentation with LoRA-Guided Distillation
 
 This repository contains code and lightweight artifacts for a deployable medical image segmentation study. The workflow adapts a MedSAM-style teacher with LoRA, distills the adapted teacher into a compact U-Net student, exports the student to ONNX, and evaluates INT8 deployment paths with an explicit Dice-drop gate.
 
