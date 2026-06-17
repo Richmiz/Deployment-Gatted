@@ -1,0 +1,49 @@
+{
+  "track": "prototype_guided_clip_lora",
+  "title": "Prototype-Guided CLIP-LoRA: Robust and Calibrated Few-Shot Vision-Language Adaptation with Non-Parametric Memory",
+  "datasets": {
+    "primary": ["oxford_iiit_pet", "eurosat", "dtd", "flowers102"],
+    "optional": ["food101", "sun397", "caltech101", "stanford_cars", "svhn", "gtsrb", "resisc45"]
+  },
+  "few_shot": {
+    "shots": [1, 2, 4, 8, 16],
+    "seeds": [1, 2, 3],
+    "default_shot": 4,
+    "default_seed": 1
+  },
+  "model": {
+    "base": "openai/clip-vit-base-patch32",
+    "prompt_template": "a photo of a {}"
+  },
+  "lora": {
+    "default_rank": 8,
+    "rank_grid": [4, 8, 16],
+    "alpha": 16,
+    "dropout": 0.1,
+    "target": "visual_encoder_attention_projections"
+  },
+  "memory": {
+    "methods": ["prototype", "knn"],
+    "default_k": 5,
+    "k_grid": [1, 3, 5, 7]
+  },
+  "fusion": {
+    "first_method": "temperature_scaled_weighted_average",
+    "report_protocols": ["fixed_config", "validation_tuned"]
+  },
+  "metrics": [
+    "accuracy",
+    "macro_f1",
+    "ece",
+    "nll",
+    "brier",
+    "topk_label_purity",
+    "trainable_params",
+    "adapter_size_mb"
+  ],
+  "outputs": {
+    "raw_metrics": "results/raw",
+    "tables": "results/tables",
+    "figures": "results/figures"
+  }
+}

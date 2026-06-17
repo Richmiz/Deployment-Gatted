@@ -1,0 +1,93 @@
+{
+  "track": "deployable_medsam",
+  "title": "Deployable MedSAM: Parameter-Efficient Adaptation, Distillation, and Real INT8 Quantization for Public Medical Image Segmentation Benchmarks",
+  "datasets": {
+    "primary": ["kvasir_seg"],
+    "external_checks": ["isic_2018_task1", "busi"],
+    "local_layout": {
+      "kvasir_seg": "data/kvasir_seg/images + data/kvasir_seg/masks",
+      "isic_2018_task1": "data/isic_2018_task1/images + data/isic_2018_task1/masks",
+      "busi": "data/busi/images + data/busi/masks"
+    }
+  },
+  "model": {
+    "teacher": "wanglab/medsam-vit-base",
+    "fallback_teacher": "facebook/sam-vit-base",
+    "student": "lightweight_unet",
+    "input_size": 256
+  },
+  "prompts": {
+    "primary_prompt": "box_from_mask",
+    "robustness_prompt": "noisy_box_from_mask",
+    "jitter_pixels": [0, 5, 10, 20],
+    "default_jitter_pixels": 10,
+    "jitter_seed": 1,
+    "coordinate_format": "xyxy_pixel_inclusive",
+    "clamp_to_image_bounds": true
+  },
+  "lora": {
+    "implementation_status": "adapter_injection_training_evaluation_and_lora_distillation_pipeline_available",
+    "default_rank": 8,
+    "rank_grid": [4, 8, 16],
+    "alpha": 16,
+    "dropout": 0.1,
+    "target": "teacher_attention_projections",
+    "pipeline_script": "scripts/run_lora_teacher_pipeline.py",
+    "adapter_output": "results/models/lora_teacher/rank8/adapters.pt",
+    "distillation_manifests": {
+      "train": "results/raw/lora_teacher_distillation_manifest_kvasir_seg_train_clean.jsonl",
+      "validation": "results/raw/lora_teacher_distillation_manifest_kvasir_seg_validation_clean.jsonl",
+      "test": "results/raw/lora_teacher_distillation_manifest_kvasir_seg_test_clean.jsonl"
+    }
+  },
+  "distillation": {
+    "start_with": "output_mask_distillation",
+    "losses": ["dice", "bce", "soft_mask_mse"]
+  },
+  "quantization": {
+    "target": "student",
+    "implemented_method": "onnxruntime_static_int8_qdq_with_selective_ptq_and_qat_distillation",
+    "control_method": "fp32_onnx_cpu_reference_and_threshold_sweep",
+    "rescue_methods": ["mixed_precision_nodes_to_exclude", "boundary_aware_calibration", "qat_distillation"],
+    "precision": "int8",
+    "export_format": "pytorch_checkpoint_to_fp32_onnx_to_int8_qdq_onnx",
+    "calibration": {
+      "dataset": "kvasir_seg_validation",
+      "min_samples": 64,
+      "target_samples": 256,
+      "representative_sampling": "deterministic_stratified_if_labels_available_else_evenly_spaced",
+      "preserve_fp32_input_preprocessing": true
+    },
+    "success_thresholds": {
+      "max_dice_drop": 0.02,
+      "max_iou_drop": 0.02,
+      "max_ece_increase": 0.02
+    },
+    "current_gate_status": "qat_int8_seeds_4_6_pass_dice_drop_gate"
+  },
+  "student": {
+    "main_model": "LightweightUNet",
+    "promptable_ablation": "PromptableLightweightUNet",
+    "promptable_status": "implemented_as_optional_ablation_not_main_claim"
+  },
+  "metrics": [
+    "dice",
+    "iou",
+    "precision",
+    "recall",
+    "brier_full",
+    "brier_roi",
+    "binary_ece_full",
+    "binary_ece_foreground",
+    "binary_ece_roi",
+    "binary_ece_boundary",
+    "latency_ms",
+    "peak_memory_mb",
+    "model_size_mb"
+  ],
+  "outputs": {
+    "raw_metrics": "results/raw",
+    "tables": "results/tables",
+    "figures": "results/figures"
+  }
+}
