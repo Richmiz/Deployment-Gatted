@@ -1,0 +1,10 @@
+# Core dependencies for the Deployable MedSAM study notebook and current smoke tests.
+# Install in WSL with:
+#   python -m pip install -r requirements.txt
+
+jupyterlab>=4.2
+ipykernel>=6.29
+pillow>=10.3
+numpy>=1.26
+pandas>=2.2
+matplotlib>=3.8

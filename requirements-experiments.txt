@@ -1,0 +1,27 @@
+# Optional dependencies for later model training, adaptation, and deployment experiments.
+# Install only when starting MedSAM/LoRA/distillation/quantization work:
+#   python -m pip install -r requirements-experiments.txt
+
+# -r requirements.txt
+
+# tqdm>=4.66
+# scipy>=1.13
+# scikit-image>=0.23
+# scikit-learn>=1.5
+# opencv-python-headless>=4.10
+
+# Deep learning stack. Install a CUDA-specific PyTorch build manually if your WSL
+# environment has an NVIDIA GPU:
+#   https://pytorch.org/get-started/locally/
+# torch>=2.3
+# torchvision>=0.18
+# transformers>=4.44
+# accelerate>=0.33
+# peft>=0.12
+# datasets>=2.20
+
+# Export and deployment utilities for later quantization experiments.
+onnx>=1.16
+onnxruntime>=1.18
+onnxscript>=0.1
+
